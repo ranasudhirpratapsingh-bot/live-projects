@@ -1,0 +1,16 @@
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.card {
+  border: none;
+}
+
+.card-footer {
+  background-color: transparent;
+}
