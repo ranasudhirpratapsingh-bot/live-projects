@@ -16,6 +16,10 @@ const blogSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    published: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

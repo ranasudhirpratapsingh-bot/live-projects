@@ -4,28 +4,41 @@ function BlogForm({ onSave, editingBlog, onCancel }) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
+  const [publishNow, setPublishNow] = useState(false);
 
   useEffect(() => {
     if (editingBlog) {
       setTitle(editingBlog.title);
       setAuthor(editingBlog.author);
       setContent(editingBlog.content);
+      setPublishNow(false);
+    } else {
+      setTitle("");
+      setAuthor("");
+      setContent("");
+      setPublishNow(false);
     }
   }, [editingBlog]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!title || !author || !content) return;
-    onSave({ title, author, content });
+    const blogData = { title, author, content };
+    if (!editingBlog) {
+      blogData.published = publishNow;
+    }
+    onSave(blogData);
     setTitle("");
     setAuthor("");
     setContent("");
+    setPublishNow(false);
   };
 
   const handleCancel = () => {
     setTitle("");
     setAuthor("");
     setContent("");
+    setPublishNow(false);
     onCancel();
   };
 
@@ -65,9 +78,23 @@ function BlogForm({ onSave, editingBlog, onCancel }) {
               required
             />
           </div>
+          {!editingBlog && (
+            <div className="form-check mb-3">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="publishNow"
+                checked={publishNow}
+                onChange={(event) => setPublishNow(event.target.checked)}
+              />
+              <label className="form-check-label" htmlFor="publishNow">
+                Publish now
+              </label>
+            </div>
+          )}
           <div className="d-flex gap-2">
             <button type="submit" className="btn btn-primary">
-              {editingBlog ? "Update Post" : "Publish Post"}
+              {editingBlog ? "Update Post" : publishNow ? "Create and Publish" : "Save Draft"}
             </button>
             {editingBlog && (
               <button type="button" className="btn btn-outline-secondary" onClick={handleCancel}>

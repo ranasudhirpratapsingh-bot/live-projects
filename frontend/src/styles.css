@@ -14,3 +14,30 @@ body {
 .card-footer {
   background-color: transparent;
 }
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.custom-modal {
+  width: 100%;
+  max-width: 960px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2);
+  padding: 1.25rem;
+}
+
+.custom-modal .btn-close {
+  border: none;
+  background: transparent;
+}
