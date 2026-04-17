@@ -139,7 +139,7 @@ function App() {
     <div className="container py-4">
       <header className="mb-4 text-center">
         <h1 className="display-5">Global Warming</h1>
-        <p className="text-muted">Create, edit, and publish blog posts with React, Node, MongoDB, and Bootstrap.</p>
+        <p className="text-muted">Save the Nature and Environment</p>
       </header>
 
       {isAdminRoute ? (
