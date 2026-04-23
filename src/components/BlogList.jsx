@@ -9,7 +9,7 @@ function BlogList({ blogs, onEdit, onDelete, onTogglePublish, showAdminActions }
 
   return (
     <div className="row g-3">
-      {blogs.map((blog) => (
+      {blogs && blogs.map((blog) => (
         <div className="col-12" key={blog._id}>
           <div className="card h-100 shadow-sm">
             <div className="card-body">

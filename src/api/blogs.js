@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://localhost:5000/api/blogs" : "/api/blogs");
-const API_URL = 'https://blogs-api-cjc0dmb5bddcbhbp.centralus-01.azurewebsites.net' || (import.meta.env.DEV ? "http://localhost:5000/api/blogs" : "/api/blogs");
+const API_URL = 'https://blogs-api-cjc0dmb5bddcbhbp.centralus-01.azurewebsites.net';
 
 const apiConfig = (role) => ({
   headers: role ? { "x-user-role": role } : {},
